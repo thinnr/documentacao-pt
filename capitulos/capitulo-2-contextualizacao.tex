@@ -1,0 +1,92 @@
+\chapter{Fundamentação Teórica}
+\label{ch:fundamentacao}
+\par Para a compreensão do projeto, é necessário entender alguns conceitos teŕicos e o objetivo do projeto. Assim como as tecnologias utilizadas.
+
+\section{Requisitos}
+\subsection{Requisitos Do Sistema}
+\subsubsection{Framework}
+\begin{itemize}
+    \item O framework deve fornecer início rápido de um projeto;
+    \item O framework deve facilitar a modularização;
+    \item O framework deve facilitar o roteamento dos módulos;
+    \item O framework deve facilitar a implementação de \textit{lazy loading}.
+\end{itemize}
+
+\subsubsection{CLI}
+\begin{itemize}
+    \item O CLI deve fornecer controle simples das funcionalidades do framework;
+    \item O CLI deve fornecer início rápido do projeto;
+    \item O CLI deve fornecer auxílio para \textit{live development}.
+\end{itemize}
+
+\section{Tecnologias Utilizadas}
+
+\subsection{Javascript}
+\par O Javascript pode ser utilizado para finalidades e paradigmas múltiplos, adaptando-se às necessidades do desenvolvedor e do projeto.
+
+\subsubsection{Especificações}
+\textbf{Versão: } ECMAScript 2019.
+
+\subsection{HTML5}
+HTML é a linguagem de marcação, livre e open-source, aceita por todos navegadores, será utilizado para produção dos templates que serão 
+renderizados no DOM.
+
+\subsubsection{Especificações}
+\textbf{Versão: } HTML5
+
+\subsection{CSS3}
+CSS é uma linguagem para modificação de estilos, muito utilizado para aplicativos web.
+
+\subsubsection{Especificações}
+\textbf{Versão: } CSS3
+
+\subsection{Lodash}
+\par Lodash é uma biblioteca de utilidades para javascript. Fornece funções e métodos para facilitar e agilizar o processo de desenvolvimento.  
+Sua utilização auxilia o desenvolvimento do projeto de forma significativa. Provendo meios para que o processo de desenvolvimento fique mais 
+concentrado no requisito, ao invés de ações comuns no desenvolvimento.
+
+\subsubsection{Especificações}
+\textbf{Versão: } 4.17.10
+
+\subsection{RxJS}
+\par RxJS é uma biblioteca para programação reativa. Assim como lodash, RxJS é uma biblioteca de utilidades, porém, focada em facilitar 
+funções assíncronas. Sua utilização é empregada principalmente para módulos que fazem requisições HTTP ou eventos e manipulação do DOM.
+
+\subsubsection{Especificações}
+\textbf{Versão: } V6
+
+\subsection{webpack}
+\par Webpack  é um empacotador de módulos, webpack faz com que todos os arquivos do projeto, seja montado em poucos arquivos minificados, 
+e prontos para produção. Sua escolha é devido a facilidade de fazer o Lazy Loading e performance quanto ao processo de desenvolvimento.
+
+\subsubsection{Especificações}
+\textbf{Versão: } 4.22.0
+
+\subsection{CommanderJs}
+CommanderJs é um framework para desenvolvimento de softwares utilizando interface de linha de comando. A escolha é devida à facilidade e rapidez no processo de desenvolvimento.
+
+\subsubsection{Especificações}
+\textbf{Versão: } v2.19.0
+
+\subsection{NPM}
+De forma básica NPM é um gerenciador de  dependências para javascript, Sua utilização é indispensável para projetos com muitas dependências 
+externas e com integração contínua.
+
+\subsubsection{Especificações}
+\textbf{Versão: } 6.4.1
+
+\subsection{Jasmine}
+Framework para testes unitários, focado em Behavior-Driven Development com javascript, Sua empregação, é devido a necessidade de garantir que o software, 
+funcione assim como esperado, e que novas funcionalidades sejam integradas sem afetar as já existentes.
+
+\subsubsection{Especificações}
+\textbf{Versão: } 3.2
+
+\section{Padrões Utilizados}
+\subsection{MVC}
+\par Para o desenvolvimento da ferramenta de linha de comando, foi empregado o padrão de projeto MVC.  
+Para a separação dos componentes responsáveis pela interação com o usuário, controle das funcionalidades e processamento das operações.
+\subsection{Programação Funcional}
+\par Para o desenvolvimento do framework e modelo do CLI, será empregado o paradigma funcional. Por ser apresentar uma estrutura mais 
+concisa e apresentar técnicas que deixam o código mais fácil de fazer testes unitários, dessa forma deixando-o mais confiável.
+

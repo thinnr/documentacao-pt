@@ -1,0 +1,218 @@
+\documentclass[
+	12pt,		
+	a4paper,	
+	english,	
+	brazil,		
+	openright,	
+	oneside		
+	]{abntex2}
+
+\usepackage{lmodern}		
+\usepackage[T1]{fontenc}	
+\usepackage[utf8]{inputenc}	
+\usepackage{lastpage}		
+\usepackage{indentfirst}
+\usepackage{color}				
+\usepackage{xcolor}
+\usepackage{graphicx}			
+\usepackage{microtype} 			
+\usepackage{lipsum}				
+\usepackage{geometry}			
+\usepackage{lscape}             
+\usepackage{bookmark}
+\usepackage{caption}           
+\usepackage{float}				
+\usepackage{pdfpages}
+\usepackage{minibox}
+\usepackage{listings}
+\usepackage{multirow}          
+
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+    \ABNTEXchapterfont\large\imprimirinstituicao\\
+    \vspace{5cm}
+    \imprimirautor
+
+    \vfill
+    \begin{center}
+    \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+    \end{center}
+    \vfill
+
+    \large\imprimirlocal
+
+    \large\imprimirdata
+
+    \vspace*{1cm}
+  \end{capa}
+}
+
+\setlength{\ABNTEXsignwidth}{10cm}
+
+\geometry{
+ a4paper,
+ bottom=2cm,
+ top=3cm,
+ left=3cm,
+ right=2cm
+}
+
+\renewcommand{\textual}{
+  \pagestyle{plain}
+  \bookmarksetup{startatroot}%
+  \pagenumbering{arabic}
+}
+
+\renewcommand{\pretextual}{%
+  \pagestyle{plain}
+  \pagenumbering{Roman}
+}
+
+\makepagestyle{estilo_pretextual}
+  \makeoddhead{estilo_pretextual}{}{}{\ABNTEXfontereduzida \textbf \thepage}
+
+\renewcommand{\pretextual}{
+  \pagenumbering{Roman} 
+  \aliaspagestyle{chapter}{estilo_pretextual}
+  \pagestyle{estilo_pretextual}
+  \aliaspagestyle{cleared}{empty}
+  \aliaspagestyle{part}{estilo_pretextual}
+}
+
+\let\oldtextual\textual     
+\renewcommand{\textual}{
+  \pagestyle{plain}
+  \aliaspagestyle{chapter}{plain}
+  \bookmarksetup{startatroot}%
+  \pagenumbering{arabic}
+}
+
+\makeatletter
+\renewcommand*{\ps@plain}{%
+  \let\@mkboth\@gobbletwo
+  \let\@oddhead\@empty
+  \def\@oddfoot{%
+    \reset@font
+    \hfil
+    \thepage
+  }
+  \let\@evenhead\@empty
+  \let\@evenfoot\@oddfoot
+}
+\makeatother
+\usepackage[brazilian, hyperpageref]{backref}	 
+\usepackage[alf]{abntex2cite}
+
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+\renewcommand{\backref}{}
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}
+
+\include{variaveis/information}
+\makeatletter
+\hypersetup{
+		pdftitle={\@title},
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico},
+		colorlinks=true,       	
+    	linkcolor=blue,          	
+    	citecolor=blue,        	
+    	filecolor=magenta,      	
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+
+\setlength{\parindent}{1.3cm} 
+
+\setlength{\parskip}{0.2cm}  
+
+\makeindex
+
+\begin{document}
+\pretextual
+\selectlanguage{brazil}
+\frenchspacing 
+
+\citeoption{abnt-etal-list=0}
+\citeoption{abnt-last-names=abnt}
+\citeoption{abnt-full-initials=yes}
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  language=C,
+  numbers=left,
+  showstringspaces=false,
+  frame=single,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\lstset{escapechar=@,style=customc}
+
+\imprimircapa
+
+\thispagestyle{empty}
+\imprimirfolhaderosto
+
+\begin{fichacatalografica}
+    \include{pre/pre_cip}
+\end{fichacatalografica}
+
+\include{pre/pre_folhaAprov}
+
+\include{pre/pre_dedic}
+
+\include{pre/pre_agrad}
+
+\include{pre/pre_epigrafe}
+
+\include{pre/pre_resumos}
+
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+\include{pre/pre_listaSiglas}
+
+\include{pre/pre_listaSimb}
+
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+\textual
+
+\setcounter{page}{15}
+
+\include{capitulos/capitulo-1-introducao}
+
+\include{capitulos/capitulo-2-contextualizacao}
+
+\include{capitulos/capitulo-3-desenvolvimento}
+
+\include{capitulos/capitulo-4-casos}
+
+\include{capitulos/capitulo-5-conclusao}
+
+\bibliography{./ref/referencias}
+% ---
+\end{document}
